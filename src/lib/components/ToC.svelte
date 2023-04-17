@@ -57,7 +57,7 @@
           class:active={activeHeading === heading}
           style={`--depth: ${
             // consider h1 and h2 at the same depth, as h1 will only be used for page title
-            Math.max(0, heading.depth - 1)
+            Math.max(0, heading.depth)
           }`}
         >
           <a href={`#${heading.id}`}>{heading.value}</a>

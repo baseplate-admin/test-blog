@@ -1,11 +1,11 @@
 <script>
   import Card from './Card.svelte'
-  import ArrowRightIcon from './ArrowRightIcon.svelte'
+  import ArrowLeftIcon from './ArrowLeftIcon.svelte'
 
   export let post
 </script>
 
-<Card href={`/post/${post.slug}`} data-sveltekit-prefetch>
+<Card href={`/post/${post.slug}`}>
   <slot slot="eyebrow" name="eyebrow" />
   <slot slot="title">{post.title}</slot>
   <div slot="description" class="prose dark:prose-invert">
@@ -14,7 +14,7 @@
   <div slot="actions">
     <div class="flex items-center text-teal-500">
       <span class="text-sm font-medium">Read</span>
-      <ArrowRightIcon class="w-4 h-4 ml-1" />
+      <ArrowLeftIcon class="w-4 h-4 ml-1 rotate-180" />
     </div>
   </div>
 </Card>

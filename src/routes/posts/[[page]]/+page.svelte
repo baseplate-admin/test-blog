@@ -1,7 +1,6 @@
 <script lang="ts">
   import { name } from '$lib/info'
   import ArrowLeftIcon from '$lib/components/ArrowLeftIcon.svelte'
-  import ArrowRightIcon from '$lib/components/ArrowRightIcon.svelte'
   import PostsList from '$lib/components/PostsList.svelte'
   import type { PageData } from './$types'
 
@@ -41,7 +40,7 @@
     {#if hasNextPage}
       <a href={`/posts/${data.page + 1}`}
         >Next
-        <ArrowRightIcon class="w-4 h-4" />
+        <ArrowLeftIcon class="w-4 h-4 rotate-180" />
       </a>
     {/if}
   </div>

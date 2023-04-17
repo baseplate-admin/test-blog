@@ -3,9 +3,26 @@
 
   export let decorate: boolean
   export let post: {
-    date: string
+    title?: string
+    metadata: {
+      title: string
+      description: string
+      date: string
+      preview?: string
+      [key: string]: unknown
+    }
+    slug: string
+    isIndexFile: boolean
+    date?: string
+    preview: {
+      html?: string
+      text?: string
+    }
     readingTime: string
+    next?: Post
+    previous?: Post
   }
+
   export let collapsed = false
 
   let _class: string

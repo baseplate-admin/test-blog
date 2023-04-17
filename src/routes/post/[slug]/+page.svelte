@@ -11,7 +11,7 @@
   // generated open-graph image for sharing on social media.
   // see https://og-image.vercel.app/ for more options.
   const ogImage = `https://og-image.vercel.app/**${encodeURIComponent(
-    data.post.title
+    data.post.title ?? ''
   )}**?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-color-logo.svg`
 
   const url = `${website}/${data.post.slug}`
@@ -100,7 +100,7 @@
             <img
               src={avatar}
               alt={name}
-              class="w-24 h-24 mx-auto rounded-full md:w-28 md:h-28 ring-2 ring-zinc-200 dark:ring-zinc-700"
+              class="w-24 h-24 mx-auto rounded-full md:w-28 md:h-28 ring-2 ring-zinc-200 dark:ring-zinc-700 grid place-items-center"
             />
           </a>
         </div>
