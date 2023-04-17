@@ -1,8 +1,11 @@
 import { posts } from '$lib/data/posts'
 import { error } from '@sveltejs/kit'
+import type { PageServerLoad } from './$types'
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
+export const load = (async ({
+  params
+  // ,fetch // Use this if you want Server Side Fetch | https://kit.svelte.dev/docs/hooks#externalfetch
+}) => {
   const { slug } = params
 
   // get post with metadata
@@ -15,4 +18,4 @@ export async function load({ params }) {
   return {
     post
   }
-}
+}) satisfies PageServerLoad

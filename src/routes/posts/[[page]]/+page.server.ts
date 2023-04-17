@@ -1,9 +1,12 @@
 import { posts } from '$lib/data/posts'
 import { paginate } from '$lib/util'
 import { error } from '@sveltejs/kit'
+import type { PageServerLoad } from './$types'
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
+export const load = (async ({
+  params
+  // ,fetch // Use this if you want Server Side Fetch | https://kit.svelte.dev/docs/hooks#externalfetch
+}) => {
   let page = params.page ? parseInt(params.page) : 1
   let limit = 10
 
@@ -19,4 +22,4 @@ export async function load({ params }) {
     page,
     limit
   }
-}
+}) satisfies PageServerLoad

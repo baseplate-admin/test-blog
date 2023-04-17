@@ -1,11 +1,11 @@
-<script>
-  import { name } from '$lib/info.js'
+<script lang="ts">
+  import { name } from '$lib/info'
   import ArrowLeftIcon from '$lib/components/ArrowLeftIcon.svelte'
   import ArrowRightIcon from '$lib/components/ArrowRightIcon.svelte'
   import PostsList from '$lib/components/PostsList.svelte'
+  import type { PageData } from './$types'
 
-  /** @type {import('./$types').PageData} */
-  export let data
+  export let data: PageData
 
   $: isFirstPage = data.page === 1
   $: hasNextPage = data.posts[data.posts.length - 1]?.previous
@@ -30,7 +30,7 @@
   <!-- pagination -->
   <div class="flex items-center justify-between pt-16 pb-8">
     {#if !isFirstPage}
-      <a href={`/posts/${data.page - 1}`} data-sveltekit-prefetch>
+      <a href={`/posts/${data.page - 1}`}>
         <ArrowLeftIcon class="w-4 h-4" />
         Previous
       </a>
@@ -39,7 +39,7 @@
     {/if}
 
     {#if hasNextPage}
-      <a href={`/posts/${data.page + 1}`} data-sveltekit-prefetch
+      <a href={`/posts/${data.page + 1}`}
         >Next
         <ArrowRightIcon class="w-4 h-4" />
       </a>

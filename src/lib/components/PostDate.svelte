@@ -1,11 +1,14 @@
-<script>
+<script lang="ts">
   import { format, parseISO } from 'date-fns'
 
-  export let decorate
-  export let post
+  export let decorate: boolean
+  export let post: {
+    date: string
+    readingTime: string
+  }
   export let collapsed = false
 
-  let _class
+  let _class: string
   export { _class as class }
 </script>
 

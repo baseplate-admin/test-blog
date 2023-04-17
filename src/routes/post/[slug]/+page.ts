@@ -2,10 +2,14 @@
  * Dynamically loads the svelte component for the post (only possible in +page.js)
  * and pass on the data from +page.server.js
  *
- * @type {import('@sveltejs/kit').PageLoad}
  */
-export async function load({ data }) {
-  // load the markdown file based on slug
+
+import type { PageLoad } from './$types'
+
+export const load = (async ({
+  data
+  // ,fetch // Use this if you want Server Side Fetch | https://kit.svelte.dev/docs/hooks#externalfetch
+}) => {
   const component = data.post.isIndexFile
     ? // vite requires relative paths and explicit file extensions for dynamic imports
       // see https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations
@@ -19,4 +23,4 @@ export async function load({ data }) {
       fullWidth: true
     }
   }
-}
+}) satisfies PageLoad
